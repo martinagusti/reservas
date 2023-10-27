@@ -1,0 +1,230 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.app-container {
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+  padding-top: 10px;
+  gap: 1rem;
+}
+
+.filter-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.btn-crear {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 80px;
+  height: 30px;
+  background-color: red;
+  color: white;
+}
+
+.filter {
+  padding: 5px 10px;
+  border: 1px solid red;
+  border-radius: 5px;
+  color: red;
+}
+
+.content-table {
+  border-collapse: collapse;
+  font-size: 1rem;
+  min-width: 400px;
+  border-radius: 5px 5px 0 0;
+  overflow: hidden;
+}
+.content-table tbody {
+  border: 1px solid lightgray;
+}
+
+.content-table thead tr {
+  background-color: rgb(168, 179, 220);
+  color: rgb(20, 13, 81);
+  text-align: left;
+}
+
+.content-table th,
+.content-table td {
+  padding: 6px 10px;
+}
+
+.content-table tbody tr {
+  border-bottom: 1px solid #dddddd;
+}
+
+.content-table tbody tr:hover {
+  background-color: rgb(20, 13, 81);
+  text-align: left;
+  color: white;
+}
+
+.content-table tbody tr:nth-of-type(even):hover {
+  background-color: rgb(20, 13, 81);
+  text-align: left;
+  color: white;
+}
+
+.content-table tbody tr:nth-of-type(even) {
+  background-color: #f3f3f3;
+}
+
+.content-table tbody tr:last-of-type {
+  border-bottom: 2px solid rgb(20, 13, 81);
+}
+
+.content-table tbody tr.active-row {
+  font-weight: bold;
+  color: #009879;
+}
+
+.points-btn-editar {
+  width: 40px;
+  height: 40px;
+  background-color: transparent;
+  background-image: url("./assets/editar.png");
+  background-size: cover;
+  border: none;
+}
+
+.points-btn-eliminar {
+  width: 40px;
+  height: 40px;
+  background-color: transparent;
+  background-image: url("./assets/delete.png");
+  background-size: cover;
+  border: none;
+  margin-left: 10px;
+}
+
+.create-modal-container {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: rgb(0, 0, 0, 0.3);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.create-modal {
+  width: 400px;
+  margin-top: 100px;
+  background-color: rgb(50, 64, 117);
+  color: rgb(168, 179, 220);
+  align-items: center;
+  padding: 20px 20px;
+  border-radius: 10px;
+}
+
+.modal-actions {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.modal-actions button {
+  border-radius: 5px;
+  min-width: 100px;
+  background-color: orangered;
+  color: white;
+  border: 1px solid black;
+}
+
+.form-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+}
+
+.form-container input {
+  width: 300px;
+  border-radius: 5px;
+  border: 1px solid lightgray;
+  padding: 5px 10px;
+}
+.form-container button {
+  padding: 5px 10px;
+  border-radius: 10px;
+  border: 1px solid;
+  margin-top: 10px;
+}
+
+.form-container span {
+  color: red;
+}
+
+.delete-modal-container {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: rgb(0, 0, 0, 0.3);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.delete-modal {
+  width: 300px;
+  margin-top: 200px;
+  background-color: rgb(50, 64, 117);
+  color: rgb(168, 179, 220);
+  align-items: center;
+  padding: 20px 20px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.delete-modal {
+  text-align: center;
+}
+
+.delete-modal label {
+  color: white;
+}
+
+.calendar {
+  width: 100vw;
+}
+
+.libre {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100px;
+  height: 100px;
+  border: 1px solid black;
+}
+
+.ocupado {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100px;
+  height: 100px;
+  border: 1px solid black;
+  background-color: lightcoral;
+}

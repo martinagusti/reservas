@@ -147,11 +147,18 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 5px;
+  gap: 10px;
 }
 
 .form-container input {
   width: 95%;
+  border-radius: 5px;
+  border: 1px solid lightgray;
+  padding: 5px 10px;
+}
+
+.form-container select {
+  width: 50%;
   border-radius: 5px;
   border: 1px solid lightgray;
   padding: 5px 10px;

@@ -74,6 +74,10 @@ function Principal({ reservas, setReservas, datos, setDatos }) {
   const onSubmit = async (data, e) => {
     e.preventDefault();
 
+    if (data.seña == "") {
+      data.seña = 0;
+    }
+
     const {
       nombre,
       apellido,
@@ -296,9 +300,7 @@ function Principal({ reservas, setReservas, datos, setDatos }) {
                 type="number"
                 id="seña"
                 placeholder="seña"
-                {...register("seña", {
-                  required: true,
-                })}
+                {...register("seña", {})}
               />
               {errors.seña?.type === "required" && <span>Campo requerido</span>}
 

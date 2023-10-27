@@ -1,8 +1,12 @@
 import { Route, Routes } from "react-router-dom";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
-import { Calendar, momentLocalizer } from "react-big-calendar";
-
+import {
+  Calendar,
+  momentLocalizer,
+  globalizeLocalizer,
+} from "react-big-calendar";
+import globalize from "globalize";
 import moment from "moment";
 import "react-big-calendar/lib/css/react-big-calendar.css";
 
@@ -16,7 +20,7 @@ import {
   updateReserva,
 } from "../services/reservasService";
 
-const localizer = momentLocalizer(moment);
+const localizer = globalizeLocalizer(globalize);
 
 function Principal({ reservas, setReservas, datos, setDatos }) {
   const [errorText, setErrorText] = useState();

@@ -42,11 +42,16 @@ function Principal({ reservas, setReservas, datos, setDatos }) {
 
   let events = [];
   for (let reserva of reservas) {
+    const fechaEsp = new Date(reserva.fecha_ingreso);
+    const fechaArg = new Date(fechaEsp.getTime() + 24 * 60 * 60 * 1000);
+    const fechaEsp2 = new Date(reserva.fecha_egreso);
+    const fechaArg2 = new Date(fechaEsp2.getTime() + 24 * 60 * 60 * 1000);
+
     events.push({
       title: `${reserva.nombre} ${reserva.apellido}`,
       allDay: true,
-      start: new Date(reserva.fecha_ingreso),
-      end: new Date(reserva.fecha_egreso),
+      start: new Date(fechaArg),
+      end: new Date(fechaArg2),
       color: reserva.lugar == "quinta" ? "green" : "blue",
       lugar: reserva.lugar,
       importe_total: reserva.importe_total,
@@ -54,8 +59,8 @@ function Principal({ reservas, setReservas, datos, setDatos }) {
       nombre: reserva.nombre,
       apellido: reserva.apellido,
       telefono: reserva.telefono,
-      fecha_ingreso: reserva.fecha_ingreso,
-      fecha_egreso: reserva.fecha_egreso,
+      fecha_ingreso: fechaArg,
+      fecha_egreso: fechaArg2,
       id: reserva.id,
     });
   }

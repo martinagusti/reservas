@@ -23,7 +23,7 @@ function App() {
   }
 
   return (
-    <div className="datos-container">
+    <div className="app-container">
       <Routes>
         <Route
           path="/"

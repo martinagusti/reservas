@@ -1,4 +1,4 @@
-.app-container {
+.principal-container {
   width: 100vw;
   display: flex;
   flex-direction: column;
@@ -6,6 +6,7 @@
   align-items: center;
   padding-top: 10px;
   gap: 1rem;
+  background-color: aliceblue;
 }
 
 .filter-container {
@@ -22,15 +23,15 @@
   align-items: center;
   width: 80px;
   height: 30px;
-  background-color: red;
+  background-color: rgb(57, 21, 215);
   color: white;
 }
 
 .filter {
   padding: 5px 10px;
-  border: 1px solid red;
+  border: 1px solid rgb(57, 21, 215);
   border-radius: 5px;
-  color: red;
+  color: rgb(57, 21, 215);
 }
 
 .content-table {
@@ -204,10 +205,6 @@
 
 .delete-modal label {
   color: white;
-}
-
-.calendar {
-  width: 100vw;
 }
 
 .libre {

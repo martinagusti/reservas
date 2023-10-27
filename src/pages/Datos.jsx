@@ -151,6 +151,7 @@ function Datos({ reservas, setReservas, datos, setDatos }) {
 
   return (
     <div className="datos-container">
+      <h1>RESERVA {datos.id}</h1>
       <h3>Nombre: {datos.nombre}</h3>
       <h3>Apellido: {datos.apellido}</h3>
       <h3>Lugar: {datos.lugar}</h3>
@@ -167,7 +168,10 @@ function Datos({ reservas, setReservas, datos, setDatos }) {
       </h3>
       <h3>Precio: $ {datos.importe_total}</h3>
       <h3>Seña: $ {datos.seña}</h3>
-      <h3>A Cobrar: $ {datos.importe_total - datos.seña}</h3>
+      <h3>
+        A Cobrar:{" "}
+        <span className="a_cobrar"> $ {datos.importe_total - datos.seña}</span>
+      </h3>
       <div className="datos-actions">
         <button onClick={() => setViewUpdateModal(true)}>EDITAR</button>
         <button onClick={() => setViewDeleteModal(true)}>ELIMINAR</button>

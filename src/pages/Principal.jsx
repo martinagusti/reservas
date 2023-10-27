@@ -43,7 +43,7 @@ function Principal({ reservas, setReservas, datos, setDatos }) {
       allDay: true,
       start: new Date(reserva.fecha_ingreso),
       end: new Date(reserva.fecha_egreso),
-      color: reserva.lugar == "quinta" ? "red" : "blue",
+      color: reserva.lugar == "quinta" ? "green" : "blue",
       lugar: reserva.lugar,
       importe_total: reserva.importe_total,
       seña: reserva.seña,
@@ -175,7 +175,7 @@ function Principal({ reservas, setReservas, datos, setDatos }) {
   };
 
   return (
-    <div className="app-container">
+    <div className="principal-container">
       <div className="filter-container">
         <select className="filter" onChange={handleOnChangeLugar}>
           <option value="">INMUEBLE (TODOS)</option>
@@ -193,13 +193,12 @@ function Principal({ reservas, setReservas, datos, setDatos }) {
       </div>
 
       <Calendar
-        className="calndar"
         localizer={localizer}
         events={events}
         startAccessor="start"
         endAccessor="end"
         eventPropGetter={eventStyleGetter}
-        style={{ height: 500, width: 300 }}
+        style={{ height: 600, width: 320 }}
         selected={selected}
         onSelectEvent={handleSelected}
       />

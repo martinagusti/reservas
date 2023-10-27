@@ -1,0 +1,30 @@
+.datos-container {
+  display: flex;
+  width: 375px;
+  height: 100vh;
+  flex-direction: column;
+  justify-content: start;
+  align-items: start;
+  padding: 5px 10px;
+}
+
+.datos-actions {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+}
+
+.datos-actions button {
+  border-radius: 5px;
+  min-width: 100px;
+  background-color: orangered;
+  color: white;
+  border: 1px solid black;
+}
+
+.btn-volver {
+  width: 90%;
+  margin-top: 50px;
+  background-color: blue;
+  color: white;
+}

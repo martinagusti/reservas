@@ -14,6 +14,14 @@ function App() {
 
   const navigateTo = useNavigate();
 
+  if (loading) {
+    return <div>Loading...</div>;
+  }
+
+  if (error) {
+    return <div>{error}</div>;
+  }
+
   return (
     <div className="datos-container">
       <Routes>

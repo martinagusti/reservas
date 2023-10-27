@@ -152,6 +152,7 @@ function Datos({ reservas, setReservas, datos, setDatos }) {
   return (
     <div className="datos-container">
       <h3>Nombre: {datos.nombre}</h3>
+      <h3>Apellido: {datos.apellido}</h3>
       <h3>Lugar: {datos.lugar}</h3>
       <h3>Telefono: {datos.telefono}</h3>
       <h3>
@@ -167,9 +168,15 @@ function Datos({ reservas, setReservas, datos, setDatos }) {
       <h3>Precio: $ {datos.importe_total}</h3>
       <h3>Seña: $ {datos.seña}</h3>
       <h3>A Cobrar: $ {datos.importe_total - datos.seña}</h3>
+      <div className="datos-actions">
+        <button onClick={() => setViewUpdateModal(true)}>EDITAR</button>
+        <button onClick={() => setViewDeleteModal(true)}>ELIMINAR</button>
+      </div>
 
-      <button onClick={() => setViewUpdateModal(true)}>EDITAR</button>
-      <button onClick={() => setViewDeleteModal(true)}>ELIMINAR</button>
+      <button className="btn-volver" onClick={() => navigateTo("/")}>
+        VOLVER
+      </button>
+
       {viewUpdateModal && (
         <div className="create-modal-container">
           <div className="create-modal">

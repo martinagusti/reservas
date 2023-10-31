@@ -24,7 +24,8 @@ export const createReserva = async (
   fecha_ingreso,
   fecha_egreso,
   importe_total,
-  seña
+  seña,
+  notas
 ) => {
   const reserva = await axios.post(
     `${import.meta.env.VITE_BACKEND_URL}/create`,
@@ -37,6 +38,7 @@ export const createReserva = async (
       fecha_egreso,
       importe_total,
       seña,
+      notas,
     }
   );
 
@@ -52,6 +54,7 @@ export const updateReserva = async (
   fecha_egreso,
   importe_total,
   seña,
+  notas,
   id
 ) => {
   const reserva = await axios.patch(
@@ -65,6 +68,7 @@ export const updateReserva = async (
       fecha_egreso,
       importe_total,
       seña,
+      notas,
     }
   );
 

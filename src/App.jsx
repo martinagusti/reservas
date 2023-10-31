@@ -6,6 +6,7 @@ import "./App.css";
 import Datos from "./pages/Datos";
 import Principal from "./pages/Principal";
 import useReservas from "./hooks/useReservas";
+import Reporte from "./pages/Reporte";
 
 function App() {
   const { reservas, setReservas, loading, error } = useReservas();
@@ -40,6 +41,17 @@ function App() {
           path="/reservas"
           element={
             <Datos
+              reservas={reservas}
+              setReservas={setReservas}
+              datos={datos}
+              setDatos={setDatos}
+            />
+          }
+        />
+        <Route
+          path="/reportes"
+          element={
+            <Reporte
               reservas={reservas}
               setReservas={setReservas}
               datos={datos}

@@ -43,9 +43,9 @@ function Principal({ reservas, setReservas, datos, setDatos }) {
   let events = [];
   for (let reserva of reservas) {
     const fechaEsp = new Date(reserva.fecha_ingreso);
-    const fechaArg = new Date(fechaEsp.getTime() + 24 * 60 * 60 * 1000);
+    const fechaArg = new Date(fechaEsp.getTime());
     const fechaEsp2 = new Date(reserva.fecha_egreso);
-    const fechaArg2 = new Date(fechaEsp2.getTime() + 24 * 60 * 60 * 1000);
+    const fechaArg2 = new Date(fechaEsp2.getTime());
 
     events.push({
       title: `${reserva.nombre} ${reserva.apellido}`,
@@ -61,6 +61,7 @@ function Principal({ reservas, setReservas, datos, setDatos }) {
       telefono: reserva.telefono,
       fecha_ingreso: fechaArg,
       fecha_egreso: fechaArg2,
+      notas: reserva.notas,
       id: reserva.id,
     });
   }
@@ -68,16 +69,8 @@ function Principal({ reservas, setReservas, datos, setDatos }) {
   const {
     register,
     handleSubmit,
-    onChange,
     formState: { errors },
     reset,
-  } = useForm();
-
-  const {
-    register: register2,
-    handleSubmit: handleSubmit2,
-    formState: { errors: errors2 },
-    reset: reset2,
   } = useForm();
 
   const onSubmit = async (data, e) => {
@@ -96,6 +89,7 @@ function Principal({ reservas, setReservas, datos, setDatos }) {
       fecha_egreso,
       importe_total,
       seña,
+      notas,
     } = data;
 
     const todas = await getReservasService();
@@ -135,7 +129,8 @@ function Principal({ reservas, setReservas, datos, setDatos }) {
           fecha_ingreso,
           fecha_egreso,
           importe_total,
-          seña
+          seña,
+          notas
         );
         if (created[0].id) {
           setReservas([created[0], ...todas]);
@@ -177,6 +172,7 @@ function Principal({ reservas, setReservas, datos, setDatos }) {
       importe_total: event.importe_total,
       seña: event.seña,
       telefono: event.telefono,
+      notas: event.notas,
       id: event.id,
     };
     setDatos(data);
@@ -198,6 +194,14 @@ function Principal({ reservas, setReservas, datos, setDatos }) {
           }}
         >
           CREAR
+        </button>
+        <button
+          className="btn-crear"
+          onClick={() => {
+            navigateTo("/reportes");
+          }}
+        >
+          REPORTES
         </button>
       </div>
 
@@ -311,6 +315,13 @@ function Principal({ reservas, setReservas, datos, setDatos }) {
                 {...register("seña", {})}
               />
               {errors.seña?.type === "required" && <span>Campo requerido</span>}
+
+              <textarea
+                type="text"
+                id="notas"
+                placeholder="notas"
+                {...register("notas", {})}
+              />
 
               {errorText && <span>{errorText}</span>}
 

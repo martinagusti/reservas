@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 
@@ -35,6 +35,7 @@ function Datos({ reservas, setReservas, datos, setDatos }) {
   );
   const [importe_total, setImporte_total] = useState(datos.importe_total);
   const [seña, setSeña] = useState(datos.seña);
+  const [notas, setNotas] = useState(datos.notas);
   const [updateId, setUpdateId] = useState(datos.id);
 
   const navigateTo = useNavigate();
@@ -58,6 +59,7 @@ function Datos({ reservas, setReservas, datos, setDatos }) {
       fecha_egreso,
       importe_total,
       seña,
+      notas,
     } = data;
 
     let todas = await getReservasService();
@@ -102,6 +104,7 @@ function Datos({ reservas, setReservas, datos, setDatos }) {
           fecha_egreso,
           importe_total,
           seña,
+          notas,
           updateId
         );
 
@@ -148,29 +151,61 @@ function Datos({ reservas, setReservas, datos, setDatos }) {
 
   const ingresoDate = new Date(datos.fecha_ingreso);
   const egresoDate = new Date(datos.fecha_egreso);
+  const tab = <>&nbsp;&nbsp;</>;
 
   return (
     <div className="datos-container">
       <h1>RESERVA {datos.id}</h1>
-      <h3>Nombre: {datos.nombre}</h3>
-      <h3>Apellido: {datos.apellido}</h3>
-      <h3>Lugar: {datos.lugar}</h3>
-      <h3>Telefono: {datos.telefono}</h3>
       <h3>
-        Fecha Ingreso:
-        {ingresoDate.getDate()}-{ingresoDate.getMonth() + 1}-
-        {ingresoDate.getFullYear()}
+        Nombre:{tab} {datos.nombre}
       </h3>
       <h3>
-        Fecha Salida:
+        Apellido:{tab} {datos.apellido}
+      </h3>
+      <h3>
+        Lugar: {tab}
+        {datos.lugar}
+      </h3>
+      <div>
+        <h3 className="tel-data">
+          Telefono: <a href={`tel:+54${datos.telefono}`}>{datos.telefono}</a>{" "}
+          <a target="_blank" href={`tel:+54${datos.telefono}`}>
+            <div className="telefono"></div>
+          </a>
+          <a
+            target="_blank"
+            href={`https://api.whatsapp.com/send?phone=54${datos.telefono}`}
+          >
+            <div className="whatsapp"></div>
+          </a>
+        </h3>
+      </div>
+
+      <h3>
+        Fecha Ingreso: {tab}
+        {ingresoDate.getDate()}-{ingresoDate.getMonth() + 1}-
+        {ingresoDate.getFullYear()}{" "}
+      </h3>
+      <h3>
+        Fecha Salida: {tab}
         {egresoDate.getDate()}-{egresoDate.getMonth() + 1}-
         {egresoDate.getFullYear()}
       </h3>
-      <h3>Precio: $ {datos.importe_total}</h3>
-      <h3>Seña: $ {datos.seña}</h3>
+      <h3>
+        Precio: {tab}${datos.importe_total}
+      </h3>
+      <h3>
+        Seña: {tab}${datos.seña}
+      </h3>
       <h3>
         A Cobrar:{" "}
-        <span className="a_cobrar"> $ {datos.importe_total - datos.seña}</span>
+        <span className="a_cobrar">
+          {tab} ${datos.importe_total - datos.seña}
+        </span>
+      </h3>
+      <h3>
+        Notas: {tab}
+        {datos.notas}
       </h3>
       <div className="datos-actions">
         <button onClick={() => setViewUpdateModal(true)}>EDITAR</button>
@@ -293,6 +328,14 @@ function Datos({ reservas, setReservas, datos, setDatos }) {
               {errors2.seña?.type === "required" && (
                 <span>Campo requerido</span>
               )}
+
+              <textarea
+                type="text"
+                id="notas"
+                defaultValue={notas}
+                placeholder="notas"
+                {...register2("notas", {})}
+              />
 
               {errorText && <span>{errorText}</span>}
 

@@ -1,0 +1,20 @@
+.reporte-container {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+  padding-top: 10px;
+  gap: 1rem;
+  background-color: aliceblue;
+}
+
+.deudores {
+  width: 90%;
+  background-color: rgb(236, 121, 121);
+  padding: 2px 10px;
+  border-radius: 5px;
+  color: white;
+  cursor: pointer;
+}

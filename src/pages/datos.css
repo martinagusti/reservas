@@ -35,7 +35,7 @@
 
 .btn-volver {
   width: 100%;
-  margin-top: 50px;
+  margin-top: 10px;
   background-color: blue;
   color: white;
 }
@@ -44,4 +44,26 @@
   background-color: lightgreen;
   border-radius: 3px;
   padding: 2px 2px;
+}
+
+.whatsapp {
+  width: 23px;
+  height: 23px;
+  background-image: url(../assets/whatsapp.png);
+  background-size: cover;
+}
+
+.telefono {
+  width: 22px;
+  height: 22px;
+  background-image: url(../assets/llamada.png);
+  background-size: cover;
+}
+
+.tel-data {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 0.7rem;
 }

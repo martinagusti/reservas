@@ -9,21 +9,6 @@ import { useNavigate } from "react-router-dom";
 function Reporte({ reservas, setReservas, datos, setDatos }) {
   const navigateTo = useNavigate();
 
-  const [dolarBlue, setDolarBlue] = useState();
-
-  console.log(reservas);
-
-  useEffect(() => {
-    fetch("https://api.bluelytics.com.ar/v2/latest")
-      .then((response) => {
-        return response.json();
-      })
-      .then((dolar) => {
-        console.log(dolar.blue.value_sell);
-        setDolarBlue(dolar.blue.value_sell);
-      });
-  }, []);
-
   const goToClient = (idCliente) => {
     setDatos(
       reservas.filter((reserva) => {
@@ -64,12 +49,6 @@ function Reporte({ reservas, setReservas, datos, setDatos }) {
         {reservas.reduce((a, b) => {
           return a + parseInt(b.importe_total);
         }, 0)}{" "}
-        USS{" "}
-        {reservas
-          .reduce((a, b) => {
-            return a + parseInt(b.importe_total) / dolarBlue;
-          }, 0)
-          .toFixed(2)}
       </div>
       <div>
         Total cobrado: ${""}

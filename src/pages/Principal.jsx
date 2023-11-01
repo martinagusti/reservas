@@ -43,9 +43,9 @@ function Principal({ reservas, setReservas, datos, setDatos }) {
   let events = [];
   for (let reserva of reservas) {
     const fechaEsp = new Date(reserva.fecha_ingreso);
-    const fechaArg = new Date(fechaEsp.getTime());
+    const fechaArg = new Date(fechaEsp.getTime() + 18060000);
     const fechaEsp2 = new Date(reserva.fecha_egreso);
-    const fechaArg2 = new Date(fechaEsp2.getTime());
+    const fechaArg2 = new Date(fechaEsp2.getTime() + 18060000);
 
     events.push({
       title: `${reserva.nombre} ${reserva.apellido}`,
@@ -75,6 +75,10 @@ function Principal({ reservas, setReservas, datos, setDatos }) {
 
   const onSubmit = async (data, e) => {
     e.preventDefault();
+
+    console.log(data.fecha_ingreso);
+    const ing = new Date(data.fecha_ingreso);
+    console.log(ing.getTime());
 
     if (data.seña == "") {
       data.seña = 0;

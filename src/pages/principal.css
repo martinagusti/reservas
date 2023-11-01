@@ -237,3 +237,8 @@ textarea {
   padding: 5px 10px;
   resize: none;
 }
+
+.rbc-btn-group {
+  display: flex;
+  gap: 1rem;
+}

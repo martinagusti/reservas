@@ -52,7 +52,14 @@ function Principal({ reservas, setReservas, datos, setDatos }) {
       allDay: true,
       start: new Date(fechaArg),
       end: new Date(fechaArg2),
-      color: reserva.lugar == "quinta" ? "green" : "blue",
+      color:
+        reserva.lugar == "quinta"
+          ? reserva.importe_total == 1
+            ? "#92e6a7"
+            : "green"
+          : reserva.importe_total == 1
+          ? "#ade8f4"
+          : "blue",
       lugar: reserva.lugar,
       importe_total: reserva.importe_total,
       seña: reserva.seña,
@@ -75,10 +82,6 @@ function Principal({ reservas, setReservas, datos, setDatos }) {
 
   const onSubmit = async (data, e) => {
     e.preventDefault();
-
-    console.log(data.fecha_ingreso);
-    const ing = new Date(data.fecha_ingreso);
-    console.log(ing.getTime());
 
     if (data.seña == "") {
       data.seña = 0;

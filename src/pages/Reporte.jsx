@@ -27,7 +27,7 @@ function Reporte({ reservas, setReservas, datos, setDatos }) {
       <div>
         Quinta: $
         {reservas.reduce((a, b) => {
-          if (b.lugar == "quinta") {
+          if (b.lugar == "quinta" && b.importe_total > 5) {
             return a + parseInt(b.importe_total);
           } else {
             return a;
@@ -37,7 +37,7 @@ function Reporte({ reservas, setReservas, datos, setDatos }) {
       <div>
         San Bernardo: $
         {reservas.reduce((a, b) => {
-          if (b.lugar == "san bernardo") {
+          if (b.lugar == "san bernardo" && b.importe_total > 5) {
             return a + parseInt(b.importe_total);
           } else {
             return a;
@@ -47,19 +47,31 @@ function Reporte({ reservas, setReservas, datos, setDatos }) {
       <div>
         Total alquileres: ${""}
         {reservas.reduce((a, b) => {
-          return a + parseInt(b.importe_total);
+          if (b.importe_total > 5) {
+            return a + parseInt(b.importe_total);
+          } else {
+            return a;
+          }
         }, 0)}{" "}
       </div>
       <div>
         Total cobrado: ${""}
         {reservas.reduce((a, b) => {
-          return a + parseInt(b.seña);
+          if (b.importe_total > 5) {
+            return a + parseInt(b.seña);
+          } else {
+            return a;
+          }
         }, 0)}
       </div>
       <div>
         Falta por cobrar: ${""}
         {reservas.reduce((a, b) => {
-          return a + parseInt(b.importe_total) - parseInt(b.seña);
+          if (b.importe_total > 5) {
+            return a + parseInt(b.importe_total) - parseInt(b.seña);
+          } else {
+            return a;
+          }
         }, 0)}
       </div>
       <h3>Listado deudores</h3>
